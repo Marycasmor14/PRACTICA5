@@ -1,0 +1,276 @@
+/* 
+   :root define variables globales (custom properties).
+   Estas variables pueden reutilizarse en todo el documento.
+*/
+:root {
+
+    /* Color de fondo para el modo día */
+    --dia-bg: #87CEEB;
+
+    /* Color del texto para el modo día */
+    --dia-texto: #2c3e50; 
+
+    /* Color del botón en modo día */
+    --dia-boton: #f39c12;
+    
+    /* Color de fondo para el modo noche */
+    --noche-bg: #1a2a3a;
+
+    /* Color del texto para el modo noche */
+    --noche-texto: #ecf0f1;
+
+    /* Color del botón en modo noche */
+    --noche-boton: #9b59b6;
+    
+    /* Variable que define una transición lenta de 2 segundos con efecto ease */
+    --transicion-lenta: 2s ease;
+
+    /* Variable que define una transición rápida de medio segundo con efecto ease */
+    --transicion-rapida: 0.5s ease;
+}
+
+/* 
+   Estilos generales aplicados al cuerpo principal del documento
+*/
+body {
+
+    /* Elimina el margen por defecto del navegador */
+    margin: 0; 
+
+    /* Hace que el body ocupe el 100% de la altura visible de la ventana */
+    height: 100vh; 
+
+    /* Activa el modelo Flexbox */
+    display: flex; 
+
+    /* Centra horizontalmente el contenido */
+    justify-content: center; 
+
+    /* Centra verticalmente el contenido */
+    align-items: center; 
+
+    /* Define la tipografía principal */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+    /* Aplica el color de fondo usando la variable del modo día */
+    background-color: var(--dia-bg);
+
+    /* Aplica el color del texto usando la variable del modo día */
+    color: var(--dia-texto);
+    
+    /* Aplica transición suave al cambiar fondo y color */
+    transition: background-color var(--transicion-lenta), color var(--transicion-lenta);
+
+    /* Oculta cualquier contenido que sobresalga del body */
+    overflow: hidden;
+}
+
+/* 
+   Estilos del contenedor central
+*/
+.contenedor-central {
+
+    /* Centra el texto dentro del contenedor */
+    text-align: center; 
+
+    /* Fondo blanco semitransparente */
+    background: rgba(255, 255, 255, 0.5); 
+
+    /* Espaciado interno del contenedor */
+    padding: 50px; 
+
+    /* Bordes redondeados */
+    border-radius: 30px; 
+
+    /* Borde sutil semitransparente */
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+
+    /* Aplica efecto de desenfoque al fondo */
+    backdrop-filter: blur(10px); 
+
+    /* Sombra externa para efecto de profundidad */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
+
+    /* Define el ancho fijo del contenedor */
+    width: 350px; 
+}
+
+/* 
+   Contenedor de la ilustración (íconos)
+*/
+.ilustracion {
+
+    /* Permite posicionar elementos hijos de forma absoluta */
+    position: relative;
+
+    /* Altura del área de ilustración */
+    height: 120px; 
+
+    /* Espacio inferior */
+    margin-bottom: 25px;
+
+    /* Activa Flexbox */
+    display: flex;
+
+    /* Centra horizontalmente */
+    justify-content: center;
+
+    /* Centra verticalmente */
+    align-items: center;
+}
+
+/* 
+   Estilos generales de los íconos
+*/
+.icono {
+
+    /* Posicionamiento absoluto respecto al contenedor padre */
+    position: absolute;
+
+    /* Ancho del ícono */
+    width: 100px;
+
+    /* Alto del ícono */
+    height: 100px;
+
+    /* Transición suave de opacidad y transformación */
+    transition: opacity 1.5s ease, transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 
+   Clase que oculta un elemento visualmente
+*/
+.oculto {
+
+    /* Hace invisible el elemento */
+    opacity: 0; 
+
+    /* Desplaza y rota el elemento para efecto animado */
+    transform: translateY(30px) rotate(45deg); 
+}
+
+/* 
+   Estilos del botón interruptor
+*/
+#interruptor {
+
+    /* Espacio superior */
+    margin-top: 20px;
+
+    /* Espaciado interno */
+    padding: 15px 35px;
+
+    /* Tamaño del texto */
+    font-size: 1rem;
+
+    /* Texto en negritas */
+    font-weight: bold;
+
+    /* Convierte el texto a mayúsculas */
+    text-transform: uppercase; 
+
+    /* Espacio entre letras */
+    letter-spacing: 1px; 
+
+    /* Cambia el cursor a mano */
+    cursor: pointer; 
+
+    /* Elimina borde por defecto */
+    border: none;
+
+    /* Bordes redondeados */
+    border-radius: 50px;
+
+    /* Color de fondo usando variable del modo día */
+    background-color: var(--dia-boton);
+
+    /* Color del texto */
+    color: white;
+
+    /* Sombra del botón */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+
+    /* Transición rápida para efectos */
+    transition: all var(--transicion-rapida);
+}
+
+/* 
+   Efecto cuando el cursor pasa sobre el botón
+*/
+#interruptor:hover {
+
+    /* Eleva ligeramente el botón */
+    transform: translateY(-3px); 
+
+    /* Incrementa la sombra */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+
+    /* Aumenta el brillo */
+    filter: brightness(1.1); 
+}
+
+/* 
+   Efecto cuando el botón es presionado
+*/
+#interruptor:active {
+
+    /* Simula presión hacia abajo */
+    transform: translateY(1px); 
+}
+
+/* 
+   Estilos aplicados cuando el body tiene la clase modo-noche
+*/
+body.modo-noche {
+
+    /* Cambia el fondo al modo noche */
+    background-color: var(--noche-bg);
+
+    /* Cambia el color del texto */
+    color: var(--noche-texto);
+}
+
+/* 
+   Cambios del contenedor en modo noche
+*/
+body.modo-noche .contenedor-central {
+
+    /* Fondo oscuro semitransparente */
+    background: rgba(0, 0, 0, 0.4);
+
+    /* Borde más tenue */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* 
+   Cambios del botón en modo noche
+*/
+body.modo-noche #interruptor {
+
+    /* Cambia color del botón */
+    background-color: var(--noche-boton);
+
+    /* Sombra con tono morado */
+    box-shadow: 0 4px 15px rgba(155, 89, 182, 0.4);
+}
+
+/* 
+   Animación de rotación cuando el ícono del sol está visible
+*/
+#icono-sol:not(.oculto) {
+
+    /* Ejecuta animación rotar continuamente */
+    animation: rotar 20s linear infinite;
+}
+
+/* 
+   Definición de la animación rotar
+*/
+@keyframes rotar {
+
+    /* Estado inicial */
+    from { transform: rotate(0deg); } 
+
+    /* Estado final */
+    to { transform: rotate(360deg); } 
+}
